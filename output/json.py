@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from dataclasses import asdict, is_dataclass
 from datetime import datetime, timezone
+from enum import Enum
 from typing import Any
 from uuid import uuid4
 
@@ -66,6 +67,8 @@ def _serialize(obj: Any) -> Any:
         return {k: _serialize(v) for k, v in obj.items()}
     if isinstance(obj, (int, float, str, bool)):
         return obj
+    if isinstance(obj, Enum):
+        return obj.value
     if obj is None:
         return None
     return str(obj)

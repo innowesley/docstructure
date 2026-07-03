@@ -195,14 +195,38 @@ def _score_metadata(features: BlockFeatures, text: str) -> int:
 
 def _score_reference(features: BlockFeatures, text: str) -> int:
     score = 0
+    if features.word_count > 5:
+        score += 1
     if text and text[0].isdigit() and "." in text[:4]:
-        score += 3
-    if "(" in text and ")" in text and text.count(",") >= 2:
         score += 3
     if text.startswith("["):
         score += 2
-    if features.word_count > 5:
+
+    # APA-style: Author (Year) pattern
+    has_year = bool(re.search(r'\(\d{4}\)', text))
+    if has_year:
+        score += 3
+
+    # APA-style: Author, A. / Author, A. A. pattern
+    if has_year and "," in text:
+        score += 2
+
+    # Multiple commas suggest full citation
+    if text.count(",") >= 3:
         score += 1
+
+    # Starts with author name (capitalized word, not a heading word)
+    if has_year and text[0].isupper():
+        score += 1
+
+    # Contains journal-like pattern (Volume, pages)
+    if re.search(r'\d+\(\d+\)', text):
+        score += 2
+
+    # Contains DOI or URL
+    if "doi" in text.lower() or "http" in text.lower():
+        score += 2
+
     return score
 
 

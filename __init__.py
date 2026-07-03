@@ -6,7 +6,7 @@ Usage:
     doc.to_json("output.json")
 """
 
-from docstructure.__main__ import run_pipeline as analyze
+from docstructure.pipeline import run_pipeline as analyze
 from docstructure.output.json import to_json, to_file, serialize
 
 __version__ = "0.1.0"
