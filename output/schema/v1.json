@@ -1,0 +1,288 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocStructure v1",
+  "description": "Language-neutral document graph output. Every document produces this shape regardless of input format.",
+  "type": "object",
+  "required": ["docstructure_version", "document", "graph", "analysis", "metadata"],
+  "properties": {
+    "docstructure_version": {
+      "const": "v1"
+    },
+    "document": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string", "description": "UUID or content hash for this parse session"}
+      }
+    },
+    "graph": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/GraphNode"}
+        },
+        "edges": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/Edge"}
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "references": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/ReferenceEntry"}
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/Diagnostic"}
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["ast_version", "parser", "parser_version", "source", "language"],
+      "properties": {
+        "ast_version": {"type": "string"},
+        "parser": {"type": "string"},
+        "parser_version": {"type": "string"},
+        "source": {"type": "string"},
+        "language": {"type": "string"},
+        "language_confidence": {"type": "number"}
+      }
+    }
+  },
+  "definitions": {
+    "Provenance": {
+      "type": "object",
+      "required": ["confidence", "produced_by"],
+      "properties": {
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "produced_by": {"type": "string"},
+        "version": {"type": "string"},
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "GraphNode": {
+      "type": "object",
+      "required": ["id", "node_type"],
+      "properties": {
+        "id": {"type": "integer"},
+        "node_type": {"type": "string"},
+        "order": {"type": "integer"},
+        "region_id": {"type": ["integer", "null"]},
+        "container_id": {"type": ["integer", "null"]},
+        "provenance": {"$ref": "#/definitions/Provenance"}
+      }
+    },
+    "ParagraphBlock": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "required": ["text", "role", "style_name"],
+          "properties": {
+            "node_type": {"const": "paragraph"},
+            "text": {"type": "string"},
+            "role": {"type": "string", "enum": ["body", "heading", "caption", "reference", "toc_entry", "abstract", "title", "metadata", "author", "footnote", "endnote"]},
+            "heading_level": {"type": ["integer", "null"]},
+            "style_name": {"type": "string"},
+            "style_base": {"type": ["string", "null"]},
+            "style_hierarchy": {"type": "array", "items": {"type": "string"}},
+            "is_visual_blank": {"type": "boolean"},
+            "is_hidden": {"type": "boolean"},
+            "outline_level": {"type": ["integer", "null"]},
+            "is_list_item": {"type": "boolean"},
+            "list_level": {"type": ["integer", "null"]},
+            "list_id": {"type": ["string", "null"]},
+            "in_table": {"type": "boolean"},
+            "page_break_before": {"type": "boolean"},
+            "page_break_after": {"type": "boolean"},
+            "section_break_type": {"type": ["string", "null"]},
+            "space_before": {"type": ["number", "null"]},
+            "space_after": {"type": ["number", "null"]},
+            "runs": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Run"}
+            },
+            "features": {"$ref": "#/definitions/BlockFeatures"}
+          }
+        }
+      ]
+    },
+    "Run": {
+      "type": "object",
+      "required": ["id", "type", "text"],
+      "properties": {
+        "id": {"type": "integer"},
+        "type": {"type": "string", "enum": ["text", "bold", "italic", "citation", "hyperlink", "footnote_ref", "math", "field"]},
+        "text": {"type": "string"},
+        "bold": {"type": "boolean"},
+        "italic": {"type": "boolean"},
+        "font_size": {"type": ["number", "null"]},
+        "font_name": {"type": ["string", "null"]},
+        "is_hidden": {"type": "boolean"}
+      }
+    },
+    "BlockFeatures": {
+      "type": "object",
+      "properties": {
+        "word_count": {"type": "integer"},
+        "sentence_count": {"type": "integer"},
+        "font_size": {"type": ["number", "null"]},
+        "font_name": {"type": "string"},
+        "bold": {"type": "boolean"},
+        "italic": {"type": "boolean"},
+        "centered": {"type": "boolean"},
+        "monospace": {"type": "boolean"},
+        "alignment": {"type": "string"},
+        "first_line_indent": {"type": "number"},
+        "space_before": {"type": ["number", "null"]},
+        "space_after": {"type": ["number", "null"]}
+      }
+    },
+    "TableBlock": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "properties": {
+            "node_type": {"const": "table"},
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cells": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "child_ids": {"type": "array", "items": {"type": "integer"}},
+                        "container_id": {"type": "integer"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ListBlock": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "properties": {
+            "node_type": {"const": "list"},
+            "list_type": {"type": "string", "enum": ["ordered", "bullet", "checklist"]},
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "child_ids": {"type": "array", "items": {"type": "integer"}},
+                  "container_id": {"type": "integer"}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "FigureBlock": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "properties": {
+            "node_type": {"const": "figure"},
+            "caption": {"type": ["string", "null"]},
+            "image_ref": {"type": ["string", "null"]}
+          }
+        }
+      ]
+    },
+    "CodeBlock": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "properties": {
+            "node_type": {"const": "code"},
+            "code": {"type": "string"},
+            "language": {"type": ["string", "null"]}
+          }
+        }
+      ]
+    },
+    "Edge": {
+      "type": "object",
+      "required": ["source_id", "target_id", "type"],
+      "properties": {
+        "source_id": {"type": "integer"},
+        "target_id": {"type": "integer"},
+        "type": {"type": "string"},
+        "provenance": {"$ref": "#/definitions/Provenance"},
+        "attributes": {"type": ["object", "null"]}
+      }
+    },
+    "RegionNode": {
+      "allOf": [
+        {"$ref": "#/definitions/GraphNode"},
+        {
+          "type": "object",
+          "properties": {
+            "node_type": {"const": "region"},
+            "region_type": {"type": "string", "enum": ["COVER", "TITLE_PAGE", "ABSTRACT", "TOC", "BODY", "REFERENCES", "APPENDIX", "FOOTNOTES", "ENDNOTES", "TABLES", "FIGURES", "BACK_MATTER"]},
+            "label": {"type": ["string", "null"]},
+            "parent_id": {"type": ["integer", "null"]}
+          }
+        }
+      ]
+    },
+    "ReferenceEntry": {
+      "type": "object",
+      "required": ["id", "block_id", "raw_text"],
+      "properties": {
+        "id": {"type": "integer"},
+        "block_id": {"type": "integer"},
+        "raw_text": {"type": "string"},
+        "authors": {"type": ["array", "null"], "items": {"type": "string"}},
+        "year": {"type": ["string", "null"]},
+        "title": {"type": ["string", "null"]},
+        "journal": {"type": ["string", "null"]},
+        "doi": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]}
+      }
+    },
+    "Diagnostic": {
+      "type": "object",
+      "required": ["severity", "rule_id", "message"],
+      "properties": {
+        "severity": {"type": "string", "enum": ["error", "warning", "info", "hint"]},
+        "rule_id": {"type": "string"},
+        "message": {"type": "string"},
+        "location": {
+          "type": "object",
+          "properties": {
+            "node_id": {"type": "integer"},
+            "run_id": {"type": ["integer", "null"]},
+            "offset": {"type": ["integer", "null"]},
+            "length": {"type": ["integer", "null"]}
+          }
+        },
+        "fix": {"type": ["string", "null"]},
+        "provenance": {"$ref": "#/definitions/Provenance"}
+      }
+    }
+  }
+}

@@ -1,0 +1,3590 @@
+{
+  "schema": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v1.json",
+  "document": {
+    "id": "dedf97e6-1fab-436d-b17a-80231b8b7fa8",
+    "source": "/home/kunta/projects/tools/.samples/stress/business_report.docx",
+    "parser": "docx",
+    "parser_version": "1.0",
+    "created_at": "2026-07-03T21:14:41.387493+00:00",
+    "metadata": {
+      "source": "/home/kunta/projects/tools/.samples/stress/business_report.docx",
+      "file_format": "docx",
+      "page_count": null,
+      "char_count": 1155
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.4,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_heading=8"
+        ]
+      },
+      "order": 0,
+      "features": {
+        "word_count": 5,
+        "sentence_count": 1,
+        "font_size": 16.0,
+        "font_name": "",
+        "bold": true,
+        "italic": false,
+        "centered": true,
+        "monospace": false,
+        "alignment": "center",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Q4 2025 Financial Performance Report",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Q4 2025 Financial Performance Report",
+          "bold": true,
+          "italic": false,
+          "font_size": 16.0,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "heading",
+      "heading_level": 1,
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 62,
+      "kind": "table",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "order": 0,
+      "rows": [
+        {
+          "cells": [
+            {
+              "child_ids": [
+                15
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                17
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                19
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                21
+              ],
+              "container_id": 62
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "child_ids": [
+                23
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                25
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                27
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                29
+              ],
+              "container_id": 62
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "child_ids": [
+                31
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                33
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                35
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                37
+              ],
+              "container_id": 62
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "child_ids": [
+                39
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                41
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                43
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                45
+              ],
+              "container_id": 62
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "child_ids": [
+                47
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                49
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                51
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                53
+              ],
+              "container_id": 62
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "child_ids": [
+                55
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                57
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                59
+              ],
+              "container_id": 62
+            },
+            {
+              "child_ids": [
+                61
+              ],
+              "container_id": 62
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.3333333333333333,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_caption=4"
+        ]
+      },
+      "order": 1,
+      "features": {
+        "word_count": 4,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": true,
+        "monospace": false,
+        "alignment": "center",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Prepared by: Finance Department",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Prepared by: Finance Department",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "caption",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 3,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.5,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_title=6"
+        ]
+      },
+      "order": 2,
+      "features": {
+        "word_count": 3,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": true,
+        "monospace": false,
+        "alignment": "center",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "January 15, 2026",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "January 15, 2026",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "title",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 4,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "blank_paragraph"
+        ]
+      },
+      "order": 3,
+      "features": {
+        "word_count": 0,
+        "sentence_count": 0,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": true,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": true,
+      "page_break_after": false
+    },
+    {
+      "id": 5,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.4090909090909091,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_heading=9"
+        ]
+      },
+      "order": 4,
+      "features": {
+        "word_count": 2,
+        "sentence_count": 1,
+        "font_size": 14.0,
+        "font_name": "",
+        "bold": true,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Executive Summary",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Executive Summary",
+          "bold": true,
+          "italic": false,
+          "font_size": 14.0,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "heading",
+      "heading_level": 1,
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 6,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.7272727272727273,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_body=8"
+        ]
+      },
+      "order": 5,
+      "features": {
+        "word_count": 45,
+        "sentence_count": 5,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Revenue increased 12% year-over-year to $45.2M, driven primarily by growth in the Enterprise segment. Operating expenses were well-controlled at 68% of revenue, resulting in a net profit of $8.7M. Key initiatives for Q1 2026 include market expansion in APAC and the launch of Product X.",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Revenue increased 12% year-over-year to $45.2M, driven primarily by growth in the Enterprise segment. Operating expenses were well-controlled at 68% of revenue, resulting in a net profit of $8.7M. Key initiatives for Q1 2026 include market expansion in APAC and the launch of Product X.",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 7,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.5294117647058824,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_heading=9"
+        ]
+      },
+      "order": 6,
+      "features": {
+        "word_count": 2,
+        "sentence_count": 1,
+        "font_size": 14.0,
+        "font_name": "",
+        "bold": true,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Revenue Analysis",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Revenue Analysis",
+          "bold": true,
+          "italic": false,
+          "font_size": 14.0,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "heading",
+      "heading_level": 1,
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 8,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "blank_paragraph"
+        ]
+      },
+      "order": 7,
+      "features": {
+        "word_count": 0,
+        "sentence_count": 0,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "",
+      "runs": [],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": true,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 9,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.8888888888888888,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_body=8"
+        ]
+      },
+      "order": 8,
+      "features": {
+        "word_count": 32,
+        "sentence_count": 3,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Enterprise segment growth was driven by three major contract renewals and two new logo acquisitions. The SMB segment saw steady growth from the self-serve channel. Consumer revenue remained flat, reflecting market saturation.",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Enterprise segment growth was driven by three major contract renewals and two new logo acquisitions. The SMB segment saw steady growth from the self-serve channel. Consumer revenue remained flat, reflecting market saturation.",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 10,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.5294117647058824,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_heading=9"
+        ]
+      },
+      "order": 9,
+      "features": {
+        "word_count": 2,
+        "sentence_count": 1,
+        "font_size": 14.0,
+        "font_name": "",
+        "bold": true,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Cost Analysis",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Cost Analysis",
+          "bold": true,
+          "italic": false,
+          "font_size": 14.0,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "heading",
+      "heading_level": 1,
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 11,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.8888888888888888,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_body=8"
+        ]
+      },
+      "order": 10,
+      "features": {
+        "word_count": 35,
+        "sentence_count": 2,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Cost of goods sold decreased to 42% of revenue (down from 44% in Q4 2024), attributed to improved cloud infrastructure efficiency. R&D spending increased to 15% of revenue as the company invested in AI capabilities.",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Cost of goods sold decreased to 42% of revenue (down from 44% in Q4 2024), attributed to improved cloud infrastructure efficiency. R&D spending increased to 15% of revenue as the company invested in AI capabilities.",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 12,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.5294117647058824,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_heading=9"
+        ]
+      },
+      "order": 11,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": 14.0,
+        "font_name": "",
+        "bold": true,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Outlook",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Outlook",
+          "bold": true,
+          "italic": false,
+          "font_size": 14.0,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "heading",
+      "heading_level": 1,
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 13,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.8888888888888888,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "score_body=8"
+        ]
+      },
+      "order": 12,
+      "features": {
+        "word_count": 25,
+        "sentence_count": 2,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "The company expects Q1 2026 revenue in the range of $46-48M, with continued margin improvement. The APAC expansion is on track for a March launch.",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "The company expects Q1 2026 revenue in the range of $46-48M, with continued margin improvement. The APAC expansion is on track for a March launch.",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": false,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 15,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 14,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Segment",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Segment",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 17,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 16,
+      "container_id": 0,
+      "features": {
+        "word_count": 2,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Q4 2025",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Q4 2025",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 19,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 18,
+      "container_id": 0,
+      "features": {
+        "word_count": 2,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Q4 2024",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Q4 2024",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 21,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 20,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Change",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Change",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 23,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 22,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Enterprise",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Enterprise",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 25,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 24,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$22.1M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$22.1M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 27,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 26,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$18.5M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$18.5M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 29,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 28,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "+19.5%",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "+19.5%",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 31,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 30,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "SMB",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "SMB",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 33,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 32,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$12.8M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$12.8M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 35,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 34,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$11.9M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$11.9M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 37,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 36,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "+7.6%",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "+7.6%",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 39,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 38,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Consumer",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Consumer",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 41,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 40,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$8.3M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$8.3M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 43,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 42,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$8.1M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$8.1M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 45,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 44,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "+2.5%",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "+2.5%",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 47,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 46,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Government",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Government",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 49,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 48,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$2.0M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$2.0M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 51,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 50,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$1.8M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$1.8M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 53,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 52,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "+11.1%",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "+11.1%",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 55,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 54,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "Total",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "Total",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 57,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 56,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$45.2M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$45.2M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 59,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 58,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "$40.3M",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "$40.3M",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 61,
+      "kind": "paragraph",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "paragraph_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "in_table"
+        ]
+      },
+      "order": 60,
+      "container_id": 0,
+      "features": {
+        "word_count": 1,
+        "sentence_count": 1,
+        "font_size": null,
+        "font_name": "",
+        "bold": false,
+        "italic": false,
+        "centered": false,
+        "monospace": false,
+        "alignment": "left",
+        "first_line_indent": 0.0,
+        "space_before": null,
+        "space_after": null
+      },
+      "text": "+12.2%",
+      "runs": [
+        {
+          "id": 0,
+          "type": "text",
+          "text": "+12.2%",
+          "bold": false,
+          "italic": false,
+          "font_size": null,
+          "font_name": "",
+          "is_hidden": false
+        }
+      ],
+      "role": "body",
+      "style_name": "Normal",
+      "style_base": "Normal",
+      "style_hierarchy": [
+        "Normal"
+      ],
+      "is_visual_blank": false,
+      "is_hidden": false,
+      "is_list_item": false,
+      "in_table": true,
+      "page_break_before": false,
+      "page_break_after": false
+    },
+    {
+      "id": 63,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=heading"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Q4 2025 Financial Performance Report",
+      "block_ids": [
+        1
+      ]
+    },
+    {
+      "id": 64,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=caption"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Prepared by: Finance Department",
+      "block_ids": [
+        2
+      ]
+    },
+    {
+      "id": 65,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=title"
+        ]
+      },
+      "region_type": "RegionType.TITLE_PAGE",
+      "label": "January 15, 2026",
+      "block_ids": [
+        3
+      ]
+    },
+    {
+      "id": 66,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "",
+      "block_ids": [
+        4
+      ]
+    },
+    {
+      "id": 67,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=heading"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Executive Summary",
+      "block_ids": [
+        5
+      ]
+    },
+    {
+      "id": 68,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Revenue increased 12% year-over-year to $45.2M, driven primarily by growth in th",
+      "block_ids": [
+        6
+      ]
+    },
+    {
+      "id": 69,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=heading"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Revenue Analysis",
+      "block_ids": [
+        7
+      ]
+    },
+    {
+      "id": 70,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "",
+      "block_ids": [
+        8
+      ]
+    },
+    {
+      "id": 71,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Enterprise segment growth was driven by three major contract renewals and two ne",
+      "block_ids": [
+        9
+      ]
+    },
+    {
+      "id": 72,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=heading"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Cost Analysis",
+      "block_ids": [
+        10
+      ]
+    },
+    {
+      "id": 73,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Cost of goods sold decreased to 42% of revenue (down from 44% in Q4 2024), attri",
+      "block_ids": [
+        11
+      ]
+    },
+    {
+      "id": 74,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=heading"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Outlook",
+      "block_ids": [
+        12
+      ]
+    },
+    {
+      "id": 75,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "The company expects Q1 2026 revenue in the range of $46-48M, with continued marg",
+      "block_ids": [
+        13
+      ]
+    },
+    {
+      "id": 76,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Segment",
+      "block_ids": [
+        15
+      ]
+    },
+    {
+      "id": 77,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Q4 2025",
+      "block_ids": [
+        17
+      ]
+    },
+    {
+      "id": 78,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Q4 2024",
+      "block_ids": [
+        19
+      ]
+    },
+    {
+      "id": 79,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Change",
+      "block_ids": [
+        21
+      ]
+    },
+    {
+      "id": 80,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Enterprise",
+      "block_ids": [
+        23
+      ]
+    },
+    {
+      "id": 81,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$22.1M",
+      "block_ids": [
+        25
+      ]
+    },
+    {
+      "id": 82,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$18.5M",
+      "block_ids": [
+        27
+      ]
+    },
+    {
+      "id": 83,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "+19.5%",
+      "block_ids": [
+        29
+      ]
+    },
+    {
+      "id": 84,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "SMB",
+      "block_ids": [
+        31
+      ]
+    },
+    {
+      "id": 85,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$12.8M",
+      "block_ids": [
+        33
+      ]
+    },
+    {
+      "id": 86,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$11.9M",
+      "block_ids": [
+        35
+      ]
+    },
+    {
+      "id": 87,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "+7.6%",
+      "block_ids": [
+        37
+      ]
+    },
+    {
+      "id": 88,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Consumer",
+      "block_ids": [
+        39
+      ]
+    },
+    {
+      "id": 89,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$8.3M",
+      "block_ids": [
+        41
+      ]
+    },
+    {
+      "id": 90,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$8.1M",
+      "block_ids": [
+        43
+      ]
+    },
+    {
+      "id": 91,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "+2.5%",
+      "block_ids": [
+        45
+      ]
+    },
+    {
+      "id": 92,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Government",
+      "block_ids": [
+        47
+      ]
+    },
+    {
+      "id": 93,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$2.0M",
+      "block_ids": [
+        49
+      ]
+    },
+    {
+      "id": 94,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$1.8M",
+      "block_ids": [
+        51
+      ]
+    },
+    {
+      "id": 95,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "+11.1%",
+      "block_ids": [
+        53
+      ]
+    },
+    {
+      "id": 96,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "Total",
+      "block_ids": [
+        55
+      ]
+    },
+    {
+      "id": 97,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$45.2M",
+      "block_ids": [
+        57
+      ]
+    },
+    {
+      "id": 98,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "$40.3M",
+      "block_ids": [
+        59
+      ]
+    },
+    {
+      "id": 99,
+      "kind": "region",
+      "provenance": {
+        "confidence": 0.7,
+        "produced_by": "section_classifier/v1",
+        "version": "1.0",
+        "evidence": [
+          "role=body"
+        ]
+      },
+      "region_type": "RegionType.MAIN_CONTENT",
+      "label": "+12.2%",
+      "block_ids": [
+        61
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source_id": 63,
+      "target_id": 1,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 64,
+      "target_id": 2,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 65,
+      "target_id": 3,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 66,
+      "target_id": 4,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 67,
+      "target_id": 5,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 68,
+      "target_id": 6,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 69,
+      "target_id": 7,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 70,
+      "target_id": 8,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 71,
+      "target_id": 9,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 72,
+      "target_id": 10,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 73,
+      "target_id": 11,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 74,
+      "target_id": 12,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 75,
+      "target_id": 13,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 76,
+      "target_id": 15,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 77,
+      "target_id": 17,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 78,
+      "target_id": 19,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 79,
+      "target_id": 21,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 80,
+      "target_id": 23,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 81,
+      "target_id": 25,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 82,
+      "target_id": 27,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 83,
+      "target_id": 29,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 84,
+      "target_id": 31,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 85,
+      "target_id": 33,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 86,
+      "target_id": 35,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 87,
+      "target_id": 37,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 88,
+      "target_id": 39,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 89,
+      "target_id": 41,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 90,
+      "target_id": 43,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 91,
+      "target_id": 45,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 92,
+      "target_id": 47,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 93,
+      "target_id": 49,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 94,
+      "target_id": 51,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 95,
+      "target_id": 53,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 96,
+      "target_id": 55,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 97,
+      "target_id": 57,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 98,
+      "target_id": 59,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    },
+    {
+      "source_id": 99,
+      "target_id": 61,
+      "type": "contains",
+      "provenance": {
+        "confidence": 0.0,
+        "produced_by": "",
+        "version": "1.0",
+        "evidence": []
+      },
+      "attributes": {}
+    }
+  ],
+  "sections": [
+    {
+      "id": 63,
+      "type": "main_content",
+      "label": "Q4 2025 Financial Performance Report",
+      "level": 0,
+      "block_ids": [
+        1
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 64,
+      "type": "main_content",
+      "label": "Prepared by: Finance Department",
+      "level": 0,
+      "block_ids": [
+        2
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 65,
+      "type": "title_page",
+      "label": "January 15, 2026",
+      "level": 0,
+      "block_ids": [
+        3
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 66,
+      "type": "main_content",
+      "label": "",
+      "level": 0,
+      "block_ids": [
+        4
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 67,
+      "type": "main_content",
+      "label": "Executive Summary",
+      "level": 0,
+      "block_ids": [
+        5
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 68,
+      "type": "main_content",
+      "label": "Revenue increased 12% year-over-year to $45.2M, driven primarily by growth in th",
+      "level": 0,
+      "block_ids": [
+        6
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 69,
+      "type": "main_content",
+      "label": "Revenue Analysis",
+      "level": 0,
+      "block_ids": [
+        7
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 70,
+      "type": "main_content",
+      "label": "",
+      "level": 0,
+      "block_ids": [
+        8
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 71,
+      "type": "main_content",
+      "label": "Enterprise segment growth was driven by three major contract renewals and two ne",
+      "level": 0,
+      "block_ids": [
+        9
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 72,
+      "type": "main_content",
+      "label": "Cost Analysis",
+      "level": 0,
+      "block_ids": [
+        10
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 73,
+      "type": "main_content",
+      "label": "Cost of goods sold decreased to 42% of revenue (down from 44% in Q4 2024), attri",
+      "level": 0,
+      "block_ids": [
+        11
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 74,
+      "type": "main_content",
+      "label": "Outlook",
+      "level": 0,
+      "block_ids": [
+        12
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 75,
+      "type": "main_content",
+      "label": "The company expects Q1 2026 revenue in the range of $46-48M, with continued marg",
+      "level": 0,
+      "block_ids": [
+        13
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 76,
+      "type": "main_content",
+      "label": "Segment",
+      "level": 0,
+      "block_ids": [
+        15
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 77,
+      "type": "main_content",
+      "label": "Q4 2025",
+      "level": 0,
+      "block_ids": [
+        17
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 78,
+      "type": "main_content",
+      "label": "Q4 2024",
+      "level": 0,
+      "block_ids": [
+        19
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 79,
+      "type": "main_content",
+      "label": "Change",
+      "level": 0,
+      "block_ids": [
+        21
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 80,
+      "type": "main_content",
+      "label": "Enterprise",
+      "level": 0,
+      "block_ids": [
+        23
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 81,
+      "type": "main_content",
+      "label": "$22.1M",
+      "level": 0,
+      "block_ids": [
+        25
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 82,
+      "type": "main_content",
+      "label": "$18.5M",
+      "level": 0,
+      "block_ids": [
+        27
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 83,
+      "type": "main_content",
+      "label": "+19.5%",
+      "level": 0,
+      "block_ids": [
+        29
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 84,
+      "type": "main_content",
+      "label": "SMB",
+      "level": 0,
+      "block_ids": [
+        31
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 85,
+      "type": "main_content",
+      "label": "$12.8M",
+      "level": 0,
+      "block_ids": [
+        33
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 86,
+      "type": "main_content",
+      "label": "$11.9M",
+      "level": 0,
+      "block_ids": [
+        35
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 87,
+      "type": "main_content",
+      "label": "+7.6%",
+      "level": 0,
+      "block_ids": [
+        37
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 88,
+      "type": "main_content",
+      "label": "Consumer",
+      "level": 0,
+      "block_ids": [
+        39
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 89,
+      "type": "main_content",
+      "label": "$8.3M",
+      "level": 0,
+      "block_ids": [
+        41
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 90,
+      "type": "main_content",
+      "label": "$8.1M",
+      "level": 0,
+      "block_ids": [
+        43
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 91,
+      "type": "main_content",
+      "label": "+2.5%",
+      "level": 0,
+      "block_ids": [
+        45
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 92,
+      "type": "main_content",
+      "label": "Government",
+      "level": 0,
+      "block_ids": [
+        47
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 93,
+      "type": "main_content",
+      "label": "$2.0M",
+      "level": 0,
+      "block_ids": [
+        49
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 94,
+      "type": "main_content",
+      "label": "$1.8M",
+      "level": 0,
+      "block_ids": [
+        51
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 95,
+      "type": "main_content",
+      "label": "+11.1%",
+      "level": 0,
+      "block_ids": [
+        53
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 96,
+      "type": "main_content",
+      "label": "Total",
+      "level": 0,
+      "block_ids": [
+        55
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 97,
+      "type": "main_content",
+      "label": "$45.2M",
+      "level": 0,
+      "block_ids": [
+        57
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 98,
+      "type": "main_content",
+      "label": "$40.3M",
+      "level": 0,
+      "block_ids": [
+        59
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": 99,
+      "type": "main_content",
+      "label": "+12.2%",
+      "level": 0,
+      "block_ids": [
+        61
+      ],
+      "confidence": 0.7
+    }
+  ],
+  "diagnostics": [],
+  "references": []
+}
