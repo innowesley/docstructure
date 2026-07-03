@@ -22,7 +22,7 @@ class _RegionState:
     def open_region(self, region_type: RegionType, block_id: int) -> None:
         self.current = region_type
         self.start_block_id = block_id
-        self.blocks_in_region = [block_id]
+        self.blocks_in_region = []
         self.region_stack.append(region_type)
 
     def extend_region(self, block_id: int) -> None:
@@ -92,12 +92,12 @@ def _classify_regions(doc: Document) -> list[RegionNode]:
         return []
 
     state = _RegionState()
-    first = paragraphs[0]
-    state.open_region(RegionType.FRONT_MATTER, first.id)
 
     closed_regions: list[Tuple[RegionType, int, list[int]]] = []
 
     for idx, block in enumerate(paragraphs):
+        if state.current is None and idx == 0:
+            state.open_region(RegionType.FRONT_MATTER, block.id)
         text = block.text.strip()
         lower = text.lower()
         role = block.role or ParagraphRole.BODY
@@ -119,6 +119,7 @@ def _classify_regions(doc: Document) -> list[RegionNode]:
             if result is not None:
                 closed_regions.append(result)
             state.open_region(new_region_type, block.id)
+            state.extend_region(block.id)
             continue
 
         if state.current is not None:

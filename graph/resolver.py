@@ -132,10 +132,13 @@ def _extract_reference_entries(doc: Document) -> None:
         if year_match:
             entry.year = year_match.group(1)
             after_year = text.split(f"({entry.year})")[-1].strip()
+            after_year = after_year.lstrip(").,;: ")
             if after_year:
                 title_end = after_year.find(".  ")
                 if title_end == -1:
                     title_end = after_year.find(". ")
+                if title_end == -1:
+                    title_end = after_year.find("\u2014")
                 if title_end == -1:
                     title_end = after_year.find(".")
                 if title_end > 0:
