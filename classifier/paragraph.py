@@ -6,7 +6,12 @@ import re
 
 from docstructure.core.common import ParagraphRole, Provenance, Signal
 from docstructure.core.document import Document
-from docstructure.core.nodes import BlockFeatures, ParagraphBlock
+from docstructure.core.nodes import (
+    BlockFeatures,
+    ClassificationResult,
+    ClassifierInfo,
+    ParagraphBlock,
+)
 
 
 # ─────────────────────────────────────────────────────────────
@@ -65,6 +70,16 @@ NUMBERED_HEADING = re.compile(r'^(\d+(?:\.\d+)*)[\.\)]\s')
 CHAPTER_HEADING = re.compile(r'^chapter\s+\d+', re.IGNORECASE)
 ROMAN_HEADING = re.compile(r'^(X{0,3}(?:IX|IV|V?I{0,3}))[\.\)]\s', re.IGNORECASE)
 
+# Reference features (citations, author names, years) overlap naturally
+# with academic body text. To prevent body paragraphs with incidental
+# citations from being classified as REFERENCE (which triggers early
+# back-matter in the region state machine), the classifier requires:
+#   1. reference_score >= REFERENCE_MIN_SCORE (strength check)
+#   2. reference_score >= body_score + REFERENCE_MARGIN (dominance check)
+#      — reference evidence must clearly dominate body evidence.
+REFERENCE_MIN_SCORE = 5
+REFERENCE_MARGIN = 2
+
 
 # ─────────────────────────────────────────────────────────────
 # Score functions (adapted from acewriter V4)
@@ -95,21 +110,21 @@ class ParagraphScores:
         return max(vals) / total
 
     def winner(self) -> ParagraphRole:
-        mapping = {
-            self.body: ParagraphRole.BODY,
-            self.title: ParagraphRole.TITLE,
-            self.heading: ParagraphRole.HEADING,
-            self.metadata: ParagraphRole.METADATA,
-            self.reference: ParagraphRole.REFERENCE,
-            self.caption: ParagraphRole.CAPTION,
-            self.toc: ParagraphRole.TOC_ENTRY,
-            self.abstract: ParagraphRole.ABSTRACT,
-            self.appendix: ParagraphRole.APPENDIX,
-        }
-        best_score = max(mapping.keys())
-        if best_score == 0:
+        candidates: list[tuple[int | float, int, ParagraphRole]] = [
+            (self.body, 0, ParagraphRole.BODY),
+            (self.title, 1, ParagraphRole.TITLE),
+            (self.heading, 2, ParagraphRole.HEADING),
+            (self.metadata, 3, ParagraphRole.METADATA),
+            (self.reference, 4, ParagraphRole.REFERENCE),
+            (self.caption, 5, ParagraphRole.CAPTION),
+            (self.toc, 6, ParagraphRole.TOC_ENTRY),
+            (self.abstract, 7, ParagraphRole.ABSTRACT),
+            (self.appendix, 8, ParagraphRole.APPENDIX),
+        ]
+        best = max(candidates, key=lambda x: (x[0], -x[1]))
+        if best[0] == 0:
             return ParagraphRole.BODY
-        return mapping[best_score]
+        return best[2]
 
 
 def _is_title_case(text: str) -> bool:
@@ -287,7 +302,7 @@ def _compute_scores(block: ParagraphBlock) -> ParagraphScores:
 def _determine_role(scores: ParagraphScores, text: str) -> ParagraphRole:
     if text.strip() and scores.winner() == ParagraphRole.HEADING and scores.heading >= 2:
         return ParagraphRole.HEADING
-    if scores.reference >= 3:
+    if scores.reference >= REFERENCE_MIN_SCORE and scores.reference >= scores.body + REFERENCE_MARGIN:
         return ParagraphRole.REFERENCE
     if scores.caption >= 3:
         return ParagraphRole.CAPTION
@@ -320,6 +335,11 @@ def classify_paragraphs(doc: Document) -> None:
         # Skip table cell paragraphs — they are children of TableCell, not standalone
         if block.in_table:
             block.role = ParagraphRole.BODY
+            block.classification = ClassificationResult(
+                label=ParagraphRole.BODY,
+                confidence=0.0,
+                classifier=ClassifierInfo(name="paragraph_classifier", version="1.0"),
+            )
             block.provenance = Provenance(
                 confidence=0.0,
                 produced_by="paragraph_classifier/v1",
@@ -329,6 +349,11 @@ def classify_paragraphs(doc: Document) -> None:
 
         if block.is_visual_blank or not block.text.strip():
             block.role = ParagraphRole.BODY
+            block.classification = ClassificationResult(
+                label=ParagraphRole.BODY,
+                confidence=0.0,
+                classifier=ClassifierInfo(name="paragraph_classifier", version="1.0"),
+            )
             block.provenance = Provenance(
                 confidence=0.0,
                 produced_by="paragraph_classifier/v1",
@@ -340,6 +365,17 @@ def classify_paragraphs(doc: Document) -> None:
         role = _determine_role(scores, block.text)
         confidence = scores.confidence()
 
+        score_dict: dict[str, float] = {
+            k: float(v) for k, v in vars(scores).items()
+            if isinstance(v, (int, float))
+        }
+
+        block.classification = ClassificationResult(
+            label=role,
+            confidence=confidence,
+            scores=score_dict if score_dict else None,
+            classifier=ClassifierInfo(name="paragraph_classifier", version="1.0"),
+        )
         block.role = role
         block.provenance = Provenance(
             confidence=confidence,
