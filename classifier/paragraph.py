@@ -300,6 +300,9 @@ def _compute_scores(block: ParagraphBlock) -> ParagraphScores:
 
 
 def _determine_role(scores: ParagraphScores, text: str) -> ParagraphRole:
+    text_lower = text.strip().lower().rstrip(":")
+    if text_lower in SECTION_NAMES and scores.heading >= 2:
+        return ParagraphRole.HEADING
     if text.strip() and scores.winner() == ParagraphRole.HEADING and scores.heading >= 2:
         return ParagraphRole.HEADING
     if scores.reference >= REFERENCE_MIN_SCORE and scores.reference >= scores.body + REFERENCE_MARGIN:

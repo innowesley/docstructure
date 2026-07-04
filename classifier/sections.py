@@ -85,6 +85,27 @@ def _region_for_heading(text: str, lower: str) -> Optional[RegionType]:
     return None
 
 
+def _has_reference_run(
+    paragraphs: list,
+    start_idx: int,
+    lookahead: int = 4,
+    min_positive: int = 2,
+) -> bool:
+    """Check if paragraphs after start_idx show strong reference evidence.
+
+    Used to confirm that a 'References' heading actually starts a reference
+    section, rather than being a spurious text match in body content.
+    """
+    positive = 0
+    end = min(len(paragraphs), start_idx + 1 + lookahead)
+    for i in range(start_idx + 1, end):
+        c = paragraphs[i].classification
+        ref = c.scores.get("reference", 0) if c and c.scores else 0
+        if ref >= 5:
+            positive += 1
+    return positive >= min_positive
+
+
 def _classify_regions(doc: Document) -> list[RegionNode]:
     """Build region tree from classified paragraphs using state machine."""
     paragraphs = doc.paragraphs
@@ -104,15 +125,33 @@ def _classify_regions(doc: Document) -> list[RegionNode]:
 
         new_region_type: Optional[RegionType] = None
 
-        # Heading text match takes priority
+        # Signal A: Heading text match — verified by pattern for REFERENCES
         if role == ParagraphRole.HEADING and text:
-            new_region_type = _region_for_heading(text, lower)
+            heading_region = _region_for_heading(text, lower)
+            if heading_region is not None:
+                if heading_region == RegionType.REFERENCES:
+                    if _has_reference_run(paragraphs, idx):
+                        new_region_type = heading_region
+                else:
+                    new_region_type = heading_region
 
-        # Role-based region transition (for non-heading role signals)
+        # Signal B: Role-based region transition
         if new_region_type is None:
             rt = _ROLE_REGION_MAP.get(role)
             if rt is not None and rt != state.current:
-                new_region_type = rt
+                # For REFERENCES, require a run of reference paragraphs
+                # (handles un-headed reference sections)
+                if rt == RegionType.REFERENCES:
+                    if _has_reference_run(paragraphs, idx):
+                        new_region_type = rt
+                else:
+                    new_region_type = rt
+
+        # Stay in REFERENCES unless strong evidence (heading match) says otherwise
+        if new_region_type is not None:
+            if state.current == RegionType.REFERENCES and new_region_type != RegionType.REFERENCES:
+                if role != ParagraphRole.HEADING:
+                    new_region_type = None
 
         if new_region_type is not None:
             result = state.close_region()
