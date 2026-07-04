@@ -1,0 +1,197 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocStructure v2",
+  "description": "Language-neutral document graph output with format detection and validation. Superset of v1.",
+  "type": "object",
+  "required": ["document", "nodes", "edges"],
+  "properties": {
+    "schema": {"type": "string", "description": "Schema URL"},
+    "document": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string"},
+        "source": {"type": "string"},
+        "parser": {"type": "string"},
+        "parser_version": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "source": {"type": "string"},
+            "file_format": {"type": "string"},
+            "page_count": {"type": ["integer", "null"]},
+            "char_count": {"type": "integer"}
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/GraphNode"}
+    },
+    "edges": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/Edge"}
+    },
+    "sections": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/Section"}
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/Diagnostic"}
+    },
+    "references": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/ReferenceEntry"}
+    },
+    "format_detection": {
+      "type": "object",
+      "properties": {
+        "detections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "format": {"type": "string"},
+              "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+              "evidence": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "winner": {"type": ["string", "null"]},
+        "winner_confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "format": {"type": "string"},
+        "compliance_score": {"type": "number", "minimum": 0, "maximum": 1},
+        "rule_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rule_id": {"type": "string"},
+              "passed": {"type": "boolean"},
+              "severity": {"type": "string"},
+              "message": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Provenance": {
+      "type": "object",
+      "required": ["confidence", "produced_by"],
+      "properties": {
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "produced_by": {"type": "string"},
+        "version": {"type": "string"},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "GraphNode": {
+      "type": "object",
+      "required": ["id", "kind"],
+      "properties": {
+        "id": {"type": "integer"},
+        "kind": {"type": "string"},
+        "order": {"type": "integer"},
+        "region_id": {"type": ["integer", "null"]},
+        "container_id": {"type": ["integer", "null"]},
+        "provenance": {"$ref": "#/definitions/Provenance"},
+        "role": {"type": "string"},
+        "text": {"type": "string"},
+        "style_name": {"type": "string"},
+        "heading_level": {"type": ["integer", "null"]},
+        "is_visual_blank": {"type": "boolean"},
+        "runs": {"type": "array", "items": {"$ref": "#/definitions/Run"}},
+        "features": {"$ref": "#/definitions/BlockFeatures"}
+      }
+    },
+    "Run": {
+      "type": "object",
+      "required": ["id", "type", "text"],
+      "properties": {
+        "id": {"type": "integer"},
+        "type": {"type": "string"},
+        "text": {"type": "string"},
+        "bold": {"type": "boolean"},
+        "italic": {"type": "boolean"},
+        "font_size": {"type": ["number", "null"]},
+        "font_name": {"type": ["string", "null"]},
+        "is_hidden": {"type": "boolean"}
+      }
+    },
+    "BlockFeatures": {
+      "type": "object",
+      "properties": {
+        "word_count": {"type": "integer"},
+        "sentence_count": {"type": "integer"},
+        "font_size": {"type": ["number", "null"]},
+        "font_name": {"type": "string"},
+        "bold": {"type": "boolean"},
+        "italic": {"type": "boolean"},
+        "centered": {"type": "boolean"},
+        "monospace": {"type": "boolean"},
+        "alignment": {"type": "string"},
+        "first_line_indent": {"type": "number"},
+        "space_before": {"type": ["number", "null"]},
+        "space_after": {"type": ["number", "null"]}
+      }
+    },
+    "Edge": {
+      "type": "object",
+      "required": ["source_id", "target_id", "type"],
+      "properties": {
+        "source_id": {"type": "integer"},
+        "target_id": {"type": "integer"},
+        "type": {"type": "string"},
+        "provenance": {"$ref": "#/definitions/Provenance"},
+        "attributes": {"type": ["object", "null"]}
+      }
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "integer"},
+        "type": {"type": "string"},
+        "label": {"type": "string"},
+        "level": {"type": "integer"},
+        "block_ids": {"type": "array", "items": {"type": "integer"}},
+        "confidence": {"type": "number"}
+      }
+    },
+    "ReferenceEntry": {
+      "type": "object",
+      "required": ["id", "block_id", "raw_text"],
+      "properties": {
+        "id": {"type": "integer"},
+        "block_id": {"type": "integer"},
+        "raw_text": {"type": "string"},
+        "authors": {"type": ["array", "null"], "items": {"type": "string"}},
+        "year": {"type": ["string", "null"]},
+        "title": {"type": ["string", "null"]},
+        "journal": {"type": ["string", "null"]},
+        "doi": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]}
+      }
+    },
+    "Diagnostic": {
+      "type": "object",
+      "properties": {
+        "severity": {"type": "string"},
+        "rule_id": {"type": "string"},
+        "message": {"type": "string"},
+        "location": {"type": ["object", "null"]},
+        "fix": {"type": ["string", "null"]},
+        "provenance": {"$ref": "#/definitions/Provenance"}
+      }
+    }
+  }
+}

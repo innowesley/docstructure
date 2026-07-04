@@ -5,7 +5,7 @@ from docstructure.classifier.sections import build_regions
 from docstructure.features import extract_features
 from docstructure.graph.resolver import resolve_relationships
 from docstructure.normalizer.normalize import normalize
-from docstructure.validate.base import Rule, validate
+
 
 
 class Pipeline:
@@ -29,15 +29,10 @@ class Pipeline:
                 break
             if started:
                 stage(doc)
-
-
-# Built-in rules
-DEFAULT_RULES: list[Rule] = [
-    # Imported in validate.base
-]
-
 # Parser registry
 PARSERS: dict[str, str] = {
     ".docx": "docstructure.parser.docx.DOCXParser",
     # Future: ".pdf": "docstructure.parser.pdf.PDFParser",
 }
+
+# Format detectors auto-register via docstructure.formats.__init__ imports

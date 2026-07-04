@@ -1,4 +1,4 @@
-"""JSON output — serialize Document to JSON matching schema/v1.json."""
+"""JSON output — serialize Document to JSON matching schema v2."""
 
 from __future__ import annotations
 
@@ -96,7 +96,7 @@ def _build_diagnostics(doc: Document) -> list[dict]:
     diags = []
     for d in doc.analysis.diagnostics:
         diags.append({
-            "rule": d.rule_name,
+            "rule": d.rule_name if hasattr(d, 'rule_name') else d.rule_id,
             "severity": d.severity.value if isinstance(d.severity, Severity) else str(d.severity),
             "message": d.message,
             "location": _serialize(d.location) if d.location else None,
@@ -110,8 +110,19 @@ def _build_references(doc: Document) -> list[dict]:
     return [_serialize(ref) for ref in doc.analysis.references]
 
 
-def serialize(doc: Document) -> dict:
-    """Serialize document to schema-compatible dict."""
+_SCHEMA_URLS = {
+    "v1": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v1.json",
+    "v2": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v2.json",
+}
+
+
+def serialize(doc: Document, schema_version: str = "v2") -> dict:
+    """Serialize document to schema-compatible dict.
+
+    Outputs v2 schema by default (superset of v1). Use schema_version="v1"
+    for v1 compatibility. Adds format_detection and validation blocks
+    when available for v2.
+    """
     nodes_out = []
     for node in doc.nodes:
         node_dict = _serialize(node)
@@ -121,15 +132,15 @@ def serialize(doc: Document) -> dict:
             "kind": kind,
             **node_dict,
         }
-        # Ensure role field for paragraph-like nodes
         if isinstance(node, ParagraphBlock) and node.role:
             entry["role"] = node.role.value if isinstance(node.role, ParagraphRole) else str(node.role)
         if isinstance(node, ParagraphBlock) and node.heading_level:
             entry["heading_level"] = node.heading_level
         nodes_out.append(entry)
 
-    output = {
-        "schema": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v1.json",
+    schema_url = _SCHEMA_URLS.get(schema_version, _SCHEMA_URLS["v2"])
+    output: dict = {
+        "schema": schema_url,
         "document": {
             "id": doc.id,
             "source": doc.source,
@@ -150,15 +161,23 @@ def serialize(doc: Document) -> dict:
         "references": _build_references(doc),
     }
 
+    # Add format detection (v2 addition; omit for v1)
+    if schema_version == "v2" and doc.analysis and doc.analysis.format_detection is not None:
+        output["format_detection"] = doc.analysis.format_detection.to_dict()
+
+    # Add validation results (v2 addition; omit for v1)
+    if schema_version == "v2" and doc.analysis and doc.analysis.validation is not None:
+        output["validation"] = doc.analysis.validation.to_dict()
+
     return output
 
 
-def to_json(doc: Document, indent: int = 2) -> str:
+def to_json(doc: Document, indent: int = 2, schema_version: str = "v2") -> str:
     """Serialize document to JSON string."""
-    return json.dumps(serialize(doc), indent=indent)
+    return json.dumps(serialize(doc, schema_version=schema_version), indent=indent)
 
 
-def to_file(doc: Document, path: str, indent: int = 2) -> None:
+def to_file(doc: Document, path: str, indent: int = 2, schema_version: str = "v2") -> None:
     """Write document JSON to a file."""
     with open(path, "w", encoding="utf-8") as f:
-        f.write(to_json(doc, indent=indent))
+        f.write(to_json(doc, indent=indent, schema_version=schema_version))

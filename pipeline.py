@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Callable
 
 from docstructure.core.document import Document
+from docstructure.exceptions import UnsupportedFormatError, ParseError
 from docstructure.normalizer.normalize import normalize
 from docstructure.features import extract_features
 from docstructure.classifier.paragraph import classify_paragraphs
@@ -30,20 +31,21 @@ def run_pipeline(source: str, verbose: bool = False) -> Document:
     path = Path(source)
     ext = path.suffix.lower()
 
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {source}")
+
     parser_fn = PARSERS.get(ext)
     if parser_fn is None:
-        print(f"Unsupported file type: {ext}", file=sys.stderr)
-        sys.exit(1)
-
-    if not path.exists():
-        print(f"File not found: {source}", file=sys.stderr)
-        sys.exit(1)
+        raise UnsupportedFormatError(
+            f"Unsupported format: {ext}. Only .docx files are supported in v0.2.0."
+        )
 
     try:
         doc = parser_fn(source)
+    except ParseError:
+        raise
     except Exception as e:
-        print(f"Error: Cannot parse '{source}': {e}", file=sys.stderr)
-        sys.exit(1)
+        raise ParseError(f"Cannot parse '{source}': {e}") from e
 
     if verbose:
         print(f"  Parsed: {len(doc.paragraphs)} paragraphs, {len(doc.nodes)} total nodes")

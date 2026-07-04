@@ -1,4 +1,4 @@
-"""Analysis results — diagnostics, reference entries, and the container."""
+"""Analysis results — diagnostics, reference entries, format detection, validation."""
 
 from __future__ import annotations
 
@@ -89,18 +89,82 @@ class ReferenceEntry:
 
 
 # ─────────────────────────────────────────────────────────────
+# Format detection
+# ─────────────────────────────────────────────────────────────
+
+
+@dataclass
+class FormatDetectionResult:
+    """Combined format detection output."""
+    detections: list[dict[str, Any]] = field(default_factory=list)
+    winner: str | None = None
+    winner_confidence: float = 0.0
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "detections": self.detections,
+            "winner": self.winner,
+            "winner_confidence": self.winner_confidence,
+        }
+
+
+# ─────────────────────────────────────────────────────────────
+# Validation
+# ─────────────────────────────────────────────────────────────
+
+
+@dataclass
+class ValidationRuleResult:
+    """Outcome of a single validation rule within a format check."""
+    rule_id: str
+    passed: bool
+    severity: str = "warning"
+    message: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "rule_id": self.rule_id,
+            "passed": self.passed,
+            "severity": self.severity,
+            "message": self.message,
+        }
+
+
+@dataclass
+class ValidationResult:
+    """Complete validation output for a document."""
+    format: str = ""
+    compliance_score: float = 0.0
+    rule_results: list[ValidationRuleResult] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "format": self.format,
+            "compliance_score": self.compliance_score,
+            "rule_results": [r.to_dict() for r in self.rule_results],
+        }
+
+
+# ─────────────────────────────────────────────────────────────
 # DocumentAnalysis
 # ─────────────────────────────────────────────────────────────
 
 
 @dataclass
 class DocumentAnalysis:
-    """Computed results — diagnostics and extracted knowledge."""
+    """Computed results — diagnostics, extracted knowledge, format detection, validation."""
     diagnostics: list[Diagnostic] = field(default_factory=list)
     references: list[ReferenceEntry] = field(default_factory=list)
+    format_detection: FormatDetectionResult | None = None
+    validation: ValidationResult | None = None
 
     def to_dict(self) -> dict[str, Any]:
-        return {
-            "diagnostics": [d.to_dict() for d in self.diagnostics],
+        d: dict[str, Any] = {
+            "diagnostics": [diag.to_dict() for diag in self.diagnostics],
             "references": [r.to_dict() for r in self.references],
         }
+        if self.format_detection is not None:
+            d["format_detection"] = self.format_detection.to_dict()
+        if self.validation is not None:
+            d["validation"] = self.validation.to_dict()
+        return d

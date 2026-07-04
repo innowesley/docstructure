@@ -16,6 +16,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 from docstructure.core.common import ParagraphRole, Provenance, Signal
 from docstructure.core.document import Document
+from docstructure.exceptions import ParseError
 from docstructure.core.nodes import (
     BlockFeatures,
     Edge,
@@ -201,13 +202,21 @@ class DOCXParser(Parser):
         doc.parser = "docx"
         doc.parser_version = "1.0"
 
-        if isinstance(source, (str, Path)):
-            docx_doc = DocxDocument(str(source))
-            doc.source = str(source)
-        else:
-            from io import BytesIO
-            docx_doc = DocxDocument(BytesIO(source))
-            doc.source = "(bytes)"
+        try:
+            if isinstance(source, (str, Path)):
+                docx_doc = DocxDocument(str(source))
+                doc.source = str(source)
+            else:
+                from io import BytesIO
+                docx_doc = DocxDocument(BytesIO(source))
+                doc.source = "(bytes)"
+        except Exception as e:
+            err_msg = str(e).lower()
+            if "file not found" in err_msg or "no such file" in err_msg:
+                raise
+            if "password" in err_msg:
+                raise ParseError("File is password-protected.") from e
+            raise ParseError(f"Corrupted file: {e}") from e
 
         # Extract all paragraphs
         for i, p in enumerate(docx_doc.paragraphs):
