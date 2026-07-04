@@ -111,8 +111,8 @@ def _build_references(doc: Document) -> list[dict]:
 
 
 _SCHEMA_URLS = {
-    "v1": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v1.json",
-    "v2": "https://raw.githubusercontent.com/anomalyco/tools/main/docstructure/output/schema/v2.json",
+    "v1": "https://raw.githubusercontent.com/innowesley/docstructure/main/output/schema/v1.json",
+    "v2": "https://raw.githubusercontent.com/innowesley/docstructure/main/output/schema/v2.json",
 }
 
 
