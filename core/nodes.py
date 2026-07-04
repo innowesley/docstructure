@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -65,6 +66,35 @@ class Run:
 
 
 # ─────────────────────────────────────────────────────────────
+# Classification result
+# ─────────────────────────────────────────────────────────────
+
+
+@dataclass(frozen=True)
+class ClassifierInfo:
+    """Structured classifier identity for provenance tracking."""
+    name: str
+    version: str = "1.0"
+
+
+@dataclass
+class ClassificationResult:
+    """Classifier output — generic, not tied to any consumer.
+
+    label:       Primary semantic role (always set)
+    confidence:  How sure the classifier is about `label`
+    scores:      Optional per-category probabilities/scores (any classifier)
+    metadata:    Free-form classifier metadata (model name, thresholds, pipeline stage, etc.)
+    classifier:  Structured identity for provenance
+    """
+    label: ParagraphRole
+    confidence: float
+    scores: Mapping[str, float] | None = None
+    metadata: Mapping[str, Any] = field(default_factory=dict)
+    classifier: ClassifierInfo = field(default_factory=lambda: ClassifierInfo("paragraph_classifier"))
+
+
+# ─────────────────────────────────────────────────────────────
 # Paragraph block
 # ─────────────────────────────────────────────────────────────
 
@@ -76,6 +106,7 @@ class ParagraphBlock(BlockNode):
     runs: list[Run] = field(default_factory=list)
     role: ParagraphRole = ParagraphRole.BODY
     heading_level: int | None = None
+    classification: ClassificationResult | None = None
 
     # Style
     style_name: str = ""

@@ -13,6 +13,8 @@ from docstructure.core.document import Document
 from docstructure.core.nodes import (
     BlockFeatures,
     BlockNode,
+    ClassificationResult,
+    ClassifierInfo,
     CodeBlock,
     Edge,
     EquationBlock,

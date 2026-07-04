@@ -116,12 +116,13 @@ _SCHEMA_URLS = {
 }
 
 
-def serialize(doc: Document, schema_version: str = "v2") -> dict:
+def serialize(doc: Document, schema_version: str = "v2", debug: bool = False) -> dict:
     """Serialize document to schema-compatible dict.
 
     Outputs v2 schema by default (superset of v1). Use schema_version="v1"
     for v1 compatibility. Adds format_detection and validation blocks
-    when available for v2.
+    when available for v2. Pass debug=True to include full classification
+    scores and metadata in output.
     """
     nodes_out = []
     for node in doc.nodes:
@@ -136,6 +137,22 @@ def serialize(doc: Document, schema_version: str = "v2") -> dict:
             entry["role"] = node.role.value if isinstance(node.role, ParagraphRole) else str(node.role)
         if isinstance(node, ParagraphBlock) and node.heading_level:
             entry["heading_level"] = node.heading_level
+        if isinstance(node, ParagraphBlock) and node.classification:
+            cl = node.classification
+            cls_entry = {
+                "label": cl.label.value,
+                "confidence": cl.confidence,
+                "classifier": {
+                    "name": cl.classifier.name,
+                    "version": cl.classifier.version,
+                },
+            }
+            if debug:
+                if cl.scores:
+                    cls_entry["scores"] = dict(cl.scores)
+                if cl.metadata:
+                    cls_entry["metadata"] = dict(cl.metadata)
+            entry["classification"] = cls_entry
         nodes_out.append(entry)
 
     schema_url = _SCHEMA_URLS.get(schema_version, _SCHEMA_URLS["v2"])
@@ -172,12 +189,12 @@ def serialize(doc: Document, schema_version: str = "v2") -> dict:
     return output
 
 
-def to_json(doc: Document, indent: int = 2, schema_version: str = "v2") -> str:
+def to_json(doc: Document, indent: int = 2, schema_version: str = "v2", debug: bool = False) -> str:
     """Serialize document to JSON string."""
-    return json.dumps(serialize(doc, schema_version=schema_version), indent=indent)
+    return json.dumps(serialize(doc, schema_version=schema_version, debug=debug), indent=indent)
 
 
-def to_file(doc: Document, path: str, indent: int = 2, schema_version: str = "v2") -> None:
+def to_file(doc: Document, path: str, indent: int = 2, schema_version: str = "v2", debug: bool = False) -> None:
     """Write document JSON to a file."""
     with open(path, "w", encoding="utf-8") as f:
-        f.write(to_json(doc, indent=indent, schema_version=schema_version))
+        f.write(to_json(doc, indent=indent, schema_version=schema_version, debug=debug))

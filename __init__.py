@@ -15,6 +15,7 @@ from docstructure.output.json import to_json, to_file, serialize
 from docstructure.formats import detect_best as detect_format
 from docstructure.validate.base import validate
 from docstructure.core.document import Document
+from docstructure.core.nodes import ClassificationResult, ClassifierInfo
 
 from docstructure._version import __version__
 __all__ = [
@@ -25,6 +26,8 @@ __all__ = [
     "serialize",
     "to_json",
     "to_file",
+    "ClassificationResult",
+    "ClassifierInfo",
     "__version__",
 ]
 

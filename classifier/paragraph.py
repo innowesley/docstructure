@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 
+from docstructure.classifier.headings import normalize_heading
 from docstructure.core.common import ParagraphRole, Provenance, Signal
 from docstructure.core.document import Document
 from docstructure.core.nodes import (
@@ -182,10 +183,10 @@ def _score_heading(features: BlockFeatures, style_name: str, text: str) -> int:
         score += 2
     if features.font_size is not None and features.font_size >= 14 and features.word_count < 15:
         score += 3
-    text_lower = text.strip().lower().rstrip(":")
-    if text_lower in SECTION_NAMES:
+    normalized = normalize_heading(text)
+    if normalized in SECTION_NAMES:
         score += 3
-    elif any(w in SECTION_WORDS for w in text_lower.split()):
+    elif any(w in SECTION_WORDS for w in normalized.split()):
         score += 2
     if NUMBERED_HEADING.match(text.strip()):
         score += 2
@@ -300,8 +301,8 @@ def _compute_scores(block: ParagraphBlock) -> ParagraphScores:
 
 
 def _determine_role(scores: ParagraphScores, text: str) -> ParagraphRole:
-    text_lower = text.strip().lower().rstrip(":")
-    if text_lower in SECTION_NAMES and scores.heading >= 2:
+    normalized = normalize_heading(text)
+    if normalized in SECTION_NAMES and scores.heading >= 2:
         return ParagraphRole.HEADING
     if text.strip() and scores.winner() == ParagraphRole.HEADING and scores.heading >= 2:
         return ParagraphRole.HEADING

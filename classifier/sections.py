@@ -4,6 +4,11 @@ from __future__ import annotations
 
 from typing import Optional, Tuple
 
+from docstructure.classifier.headings import (
+    normalize_heading,
+    should_open_references,
+    REFERENCE_VOCABULARY,
+)
 from docstructure.core.common import ParagraphRole, Provenance, RegionType
 from docstructure.core.document import Document
 from docstructure.core.nodes import Edge, RegionNode
@@ -41,34 +46,6 @@ class _RegionState:
         return self.close_region()
 
 
-_SECTION_HEADINGS: list[Tuple[str, RegionType]] = [
-    ("abstract", RegionType.ABSTRACT),
-    ("introduction", RegionType.INTRODUCTION),
-    ("background", RegionType.MAIN_CONTENT),
-    ("literature review", RegionType.MAIN_CONTENT),
-    ("related work", RegionType.MAIN_CONTENT),
-    ("methodology", RegionType.METHODOLOGY),
-    ("methods", RegionType.METHODOLOGY),
-    ("method", RegionType.METHODOLOGY),
-    ("approach", RegionType.METHODOLOGY),
-    ("results", RegionType.RESULTS),
-    ("findings", RegionType.RESULTS),
-    ("analysis", RegionType.DISCUSSION),
-    ("discussion", RegionType.DISCUSSION),
-    ("conclusion", RegionType.CONCLUSION),
-    ("conclusions", RegionType.CONCLUSION),
-    ("summary", RegionType.CONCLUSION),
-    ("references", RegionType.REFERENCES),
-    ("bibliography", RegionType.REFERENCES),
-    ("works cited", RegionType.REFERENCES),
-    ("acknowledgements", RegionType.REFERENCES),
-    ("acknowledgments", RegionType.REFERENCES),
-    ("appendix", RegionType.APPENDIX),
-    ("appendices", RegionType.APPENDIX),
-    ("table of contents", RegionType.TABLE_OF_CONTENTS),
-    ("contents", RegionType.TABLE_OF_CONTENTS),
-]
-
 _ROLE_REGION_MAP: dict[ParagraphRole, RegionType] = {
     ParagraphRole.ABSTRACT: RegionType.ABSTRACT,
     ParagraphRole.REFERENCE: RegionType.REFERENCES,
@@ -76,38 +53,39 @@ _ROLE_REGION_MAP: dict[ParagraphRole, RegionType] = {
     ParagraphRole.TOC_ENTRY: RegionType.TABLE_OF_CONTENTS,
 }
 
-
-def _region_for_heading(text: str, lower: str) -> Optional[RegionType]:
-    text_lower = lower.strip().rstrip(":")
-    for heading_text, rtype in _SECTION_HEADINGS:
-        if text_lower == heading_text:
-            return rtype
-    return None
+_PRE_BODY_REGIONS: set[RegionType] = {
+    RegionType.FRONT_MATTER, RegionType.ABSTRACT, RegionType.TABLE_OF_CONTENTS,
+}
 
 
-def _has_reference_run(
-    paragraphs: list,
-    start_idx: int,
-    lookahead: int = 4,
-    min_positive: int = 2,
-) -> bool:
-    """Check if paragraphs after start_idx show strong reference evidence.
+def _in_main_body(state: _RegionState) -> bool:
+    """Check if the document has progressed past front matter."""
+    return state.current not in _PRE_BODY_REGIONS
 
-    Used to confirm that a 'References' heading actually starts a reference
-    section, rather than being a spurious text match in body content.
-    """
-    positive = 0
-    end = min(len(paragraphs), start_idx + 1 + lookahead)
-    for i in range(start_idx + 1, end):
+
+def _gather_ref_scores(paragraphs: list, idx: int, lookahead: int = 3) -> list[float]:
+    """Collect reference scores for paragraphs following *idx*."""
+    scores: list[float] = []
+    end = min(len(paragraphs), idx + 1 + lookahead)
+    for i in range(idx + 1, end):
         c = paragraphs[i].classification
         ref = c.scores.get("reference", 0) if c and c.scores else 0
-        if ref >= 5:
-            positive += 1
-    return positive >= min_positive
+        scores.append(ref)
+    return scores
+
+
+def _heading_score(paragraph) -> int:
+    c = paragraph.classification
+    return int(c.scores.get("heading", 0)) if c and c.scores else 0
 
 
 def _classify_regions(doc: Document) -> list[RegionNode]:
-    """Build region tree from classified paragraphs using state machine."""
+    """Build region tree from classified paragraphs using state machine.
+
+    Uses section-transition confidence scoring for REFERENCES region
+    detection (see classifier/headings.py). Non-REFERENCES headings
+    default to MAIN_CONTENT (generic document analysis approach).
+    """
     paragraphs = doc.paragraphs
     if not paragraphs:
         return []
@@ -120,34 +98,46 @@ def _classify_regions(doc: Document) -> list[RegionNode]:
         if state.current is None and idx == 0:
             state.open_region(RegionType.FRONT_MATTER, block.id)
         text = block.text.strip()
-        lower = text.lower()
         role = block.role or ParagraphRole.BODY
 
         new_region_type: Optional[RegionType] = None
 
-        # Signal A: Heading text match — verified by pattern for REFERENCES
+        # Signal A: Heading-driven transition
+        #   - REFERENCES region uses confidence scoring (semantics + formatting + evidence)
+        #   - All other headings default to MAIN_CONTENT (generic document analysis engine)
         if role == ParagraphRole.HEADING and text:
-            heading_region = _region_for_heading(text, lower)
-            if heading_region is not None:
-                if heading_region == RegionType.REFERENCES:
-                    if _has_reference_run(paragraphs, idx):
-                        new_region_type = heading_region
-                else:
-                    new_region_type = heading_region
+            normalized = normalize_heading(text)
+            new_region_type = RegionType.MAIN_CONTENT
+
+            if state.current != RegionType.REFERENCES:
+                look_ahead = _gather_ref_scores(paragraphs, idx)
+                if should_open_references(
+                    normalized,
+                    _heading_score(block),
+                    look_ahead,
+                    in_main_body=_in_main_body(state),
+                ):
+                    new_region_type = RegionType.REFERENCES
+            else:
+                # Already in REFERENCES — only leave if heading has strong formatting
+                # evidence (score >= 3) indicating a real new section.
+                if _heading_score(block) < 3:
+                    new_region_type = None
 
         # Signal B: Role-based region transition
+        #   (catches un-headed sections via paragraph-level classification)
         if new_region_type is None:
             rt = _ROLE_REGION_MAP.get(role)
             if rt is not None and rt != state.current:
-                # For REFERENCES, require a run of reference paragraphs
-                # (handles un-headed reference sections)
                 if rt == RegionType.REFERENCES:
-                    if _has_reference_run(paragraphs, idx):
+                    look_ahead = _gather_ref_scores(paragraphs, idx)
+                    strong = sum(1 for s in look_ahead if s >= 5)
+                    if strong >= 2:
                         new_region_type = rt
                 else:
                     new_region_type = rt
 
-        # Stay in REFERENCES unless strong evidence (heading match) says otherwise
+        # Persistence: once in REFERENCES, don't leave without good reason
         if new_region_type is not None:
             if state.current == RegionType.REFERENCES and new_region_type != RegionType.REFERENCES:
                 if role != ParagraphRole.HEADING:
