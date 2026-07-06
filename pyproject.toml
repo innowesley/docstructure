@@ -26,3 +26,6 @@ version = {attr = "docstructure._version.__version__"}
 [project.urls]
 Homepage = "https://github.com/anomalyco/tools"
 Documentation = "https://github.com/anomalyco/tools/tree/main/docstructure"
+
+[project.scripts]
+docstructure = "docstructure.__main__:main"
